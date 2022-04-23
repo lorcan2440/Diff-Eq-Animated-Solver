@@ -4,4 +4,4 @@ in real time as it continues to solve. Has the option to save the video as an `.
 
 The example provided solves the system
 
-<img src="https://render.githubusercontent.com/render/math?math=\color{Pink}\left\{\begin{matrix}x'=0.05y-0.24x+10.5\\y'=0.04x-0.05y\end{matrix}\right.">
+<img src="https://render.githubusercontent.com/render/math?math=\color{Pink}\left\{\begin{matrix}x'=0.05y-0.24x%5C10.5\\y'=0.04x-0.05y\end{matrix}\right.">
