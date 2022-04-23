@@ -2,4 +2,10 @@
 Solves a system of ordinary differential equations (using `scipy.integrate.solve_ivp`) and animates the solutions,
 in real time as it continues to solve. Has the option to save the video as an `.MP4`.
 
-<img src="https://render.githubusercontent.com/render/math?math=\color{Yellow} e^{i \pi} = -1">
+The example provided solves the system
+
+<img src="https://render.githubusercontent.com/render/math?math=\color{Yellow} 
+\left\{\begin{matrix}
+x' = 10.5 + 0.05y - 0.24x \\
+y' = 0.04x - 0.05y
+\end{matrix}\right.">
