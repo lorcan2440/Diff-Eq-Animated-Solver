@@ -8,4 +8,4 @@ The example provided solves the system
 
 and can be generalised to any nonlinear system of _n_ ODEs.
 
-<video src="MyVideo.mp4"></video>
+<video src="https://github.com/lorcan2440/diff-eq-animated-solver/blob/main/MyVideo.mp4"></video>
