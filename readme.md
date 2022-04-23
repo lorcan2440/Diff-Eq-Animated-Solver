@@ -8,4 +8,4 @@ The example provided solves the system
 
 and can be generalised to any nonlinear system of _n_ ODEs.
 
-<video src="MyVideo.mp4" width=180></video>
+<video src="MyVideo.mp4"></video>
