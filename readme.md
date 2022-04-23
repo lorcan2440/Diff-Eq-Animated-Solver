@@ -6,4 +6,4 @@ The example provided solves the system
 
 <img src="https://render.githubusercontent.com/render/math?math=\color{Orange}\left\{\begin{matrix}x'=0.05y-0.24x%2B10.5\\y'=0.04x-0.05y\end{matrix}\right.">
 
-and can be generalised to any nonlinear system of n ODEs.
+and can be generalised to any nonlinear system of _n_ ODEs.
