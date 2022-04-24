@@ -9,5 +9,6 @@ The example provided solves the system
 and can be generalised to any nonlinear system of _n_ ODEs.
 
 ![Result](ezgif.com-gif-maker.gif)
+^ compressed - actual output is in MP4, much higher resolution, 30 fps.
 
 <video src="https://github.com/lorcan2440/diff-eq-animated-solver/blob/main/MyVideo.mp4"></video>
