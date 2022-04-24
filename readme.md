@@ -8,6 +8,6 @@ The example provided solves the system
 
 and can be generalised to any nonlinear system of _n_ ODEs.
 
-![Demo Doccou alpha](http://share.gifyoutube.com/KzB6Gb.gif)
+![Result](ezgif.com-gif-maker.gif)
 
 <video src="https://github.com/lorcan2440/diff-eq-animated-solver/blob/main/MyVideo.mp4"></video>
