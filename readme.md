@@ -10,4 +10,4 @@ and can be generalised to any nonlinear system of _n_ ODEs.
 
 ![Result](ezgif.com-gif-maker.gif)
 
-^ compressed - actual output is in MP4, much higher resolution, 30 fps.
+^ compressed - actual output is in MP4, much higher resolution, can be as long as you want, 30 fps.
