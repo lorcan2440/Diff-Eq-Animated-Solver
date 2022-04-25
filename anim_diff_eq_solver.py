@@ -6,7 +6,7 @@ import math, sys, time
 
 
 FFMPEG_PATH = r'C:\ffmpeg-build\bin\ffmpeg.exe'
-MPL_STYLESHEET = r'C:\Users\lnick\Documents\Personal\Programming\Python\Resources\proplot_style.mplstyle'
+MPL_STYLESHEET = r'..\Resources\proplot_style.mplstyle'
 
 INITIAL_VALUES = np.array([10, 6])      # initial values of dependent variables
 INITIAL_T = 0                           # initial value of independent variable
