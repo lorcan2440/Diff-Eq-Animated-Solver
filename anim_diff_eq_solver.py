@@ -52,7 +52,7 @@ def animate(frame: int, history: dict[str, np.ndarray]) -> None:
 
     # solve system over these t bounds
     sol = scipy.integrate.solve_ivp(system_rhs, t_range,
-        last_vals, method="BDF", max_step=MAX_STEP_T)  # solve the system over these t
+        last_vals, method='LSODA', max_step=MAX_STEP_T)  # solve the system over these t
     
     # record values up to this latest point
     all_t = np.concatenate((all_t, sol.t))
