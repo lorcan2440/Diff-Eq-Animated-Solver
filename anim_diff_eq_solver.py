@@ -73,19 +73,21 @@ def animate(frame: int, history: dict[str, np.ndarray]) -> None:
     # show legend
     plt.legend(loc='upper left')
 
+	
+if __name__ == '__main__':
 
-NUM_DEPENDENT_VARS = len(DEP_VAR_NAMES)
-window = int(ANIM_STEP_T / STEP_T)
-history = {
-    'last_vals': INITIAL_VALUES,
-    'all_t': np.array([]),
-    'all_y_vec': np.array([[] for _ in range(NUM_DEPENDENT_VARS)])
-    }
+	NUM_DEPENDENT_VARS = len(DEP_VAR_NAMES)
+	window = int(ANIM_STEP_T / STEP_T)
+	history = {
+		'last_vals': INITIAL_VALUES,
+		'all_t': np.array([]),
+		'all_y_vec': np.array([[] for _ in range(NUM_DEPENDENT_VARS)])
+		}
 
-fig = plt.figure()
-ani = anim.FuncAnimation(fig, animate, fargs=(history,), interval=10, save_count=sys.maxsize)
+	fig = plt.figure()
+	ani = anim.FuncAnimation(fig, animate, fargs=(history,), interval=10, save_count=sys.maxsize)
 
-if SAVE_OR_VIEW == 'view':
-    plt.show()
-elif SAVE_OR_VIEW == 'save':
-    ani.save('MyVideo.mp4', writer=anim.FFMpegWriter(fps=30, codec='libx264', bitrate=-1))
+	if SAVE_OR_VIEW == 'view':
+		plt.show()
+	elif SAVE_OR_VIEW == 'save':
+		ani.save('MyVideo.mp4', writer=anim.FFMpegWriter(fps=30, codec='libx264', bitrate=-1))
