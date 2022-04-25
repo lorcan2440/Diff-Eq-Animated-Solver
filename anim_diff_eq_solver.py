@@ -5,15 +5,14 @@ import numpy as np
 import math, sys, time
 
 
-mpl.rcParams['animation.ffmpeg_path'] = r'C:\ffmpeg-build\bin\ffmpeg.exe'
-plt.style.use(r'C:\Users\lnick\Documents\Personal\Programming\Python\Resources\proplot_style.mplstyle')
-
+FFMPEG_PATH = r'C:\ffmpeg-build\bin\ffmpeg.exe'
+MPL_STYLESHEET = r'C:\Users\lnick\Documents\Personal\Programming\Python\Resources\proplot_style.mplstyle'
 
 INITIAL_VALUES = np.array([10, 6])      # initial values of dependent variables
 INITIAL_T = 0                           # initial value of independent variable
-STEP_T = 0.5                           # maximum integration step size
-ANIM_STEP_T = 5                       # update frame every interval
-SLIDING_WINDOW_T = 75                   # start moving along with the graph after this time
+MAX_STEP_T = 0.01                           # maximum integration step size
+ANIM_STEP_T = 2                       # update frame every interval
+SLIDING_WINDOW_T = 60                   # start moving along with the graph after this time
 DEP_VAR_NAMES = np.array(['Rabbits (prey)', 'Foxes (predators)'])    # shown in legend
 SAVE_OR_VIEW = 'view'                   # save: terminate program to end video recording, or
                                         # view: watch graphing in progress
@@ -31,21 +30,21 @@ def system_rhs(t: float, y_vec: np.ndarray) -> np.ndarray:
 
 def init_graph():
 
-    # set graphical options
+    plt.style.use(MPL_STYLESHEET)
+    mpl.rcParams['animation.ffmpeg_path'] = FFMPEG_PATH
+
+
+def animate(frame: int, history: dict[str, np.ndarray]) -> None:
+
+    # clear and set graphical options
     plt.cla()
     plt.title('Evolution of populations')
     plt.xlabel('Time / weeks')
     plt.ylabel('Population, in hundreds')
 
-
-def animate(frame: int, history: dict[str, np.ndarray]) -> None:
-
-    # clear
-    plt.cla()
-
     # the new values of t to be plotted in this frame
-    t_range = np.array([INITIAL_T + STEP_T * frame * window, \
-                        INITIAL_T + STEP_T * (frame + 1) * window])
+    t_range = np.array([INITIAL_T + MAX_STEP_T * frame * window, \
+                        INITIAL_T + MAX_STEP_T * (frame + 1) * window])
 
     # set first values for this range
     last_vals, all_t, all_y_vec = history['last_vals'], history['all_t'], history['all_y_vec']
@@ -53,7 +52,7 @@ def animate(frame: int, history: dict[str, np.ndarray]) -> None:
 
     # solve system over these t bounds
     sol = scipy.integrate.solve_ivp(system_rhs, t_range,
-        last_vals, method="BDF", max_step=STEP_T)  # solve the system over these t
+        last_vals, method="BDF", max_step=MAX_STEP_T)  # solve the system over these t
     
     # record values up to this latest point
     all_t = np.concatenate((all_t, sol.t))
@@ -82,7 +81,7 @@ def animate(frame: int, history: dict[str, np.ndarray]) -> None:
 if __name__ == '__main__':
 
     NUM_DEPENDENT_VARS = len(DEP_VAR_NAMES)
-    window = int(ANIM_STEP_T / STEP_T)
+    window = int(ANIM_STEP_T / MAX_STEP_T)
     history = {
         'last_vals': INITIAL_VALUES,
         'all_t': np.array([INITIAL_T]),
